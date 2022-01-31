@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titile %}Home{% endblock titile %}</title>
+</head>
+
+<body>
+
+    {% block categories %}
+    <div class="categories-wrap">
+        <style>
+            .category_slider .slick-arrow.slick-prev {
+                left: 0;
+                background: url("{% static 'img/arrow_left.svg' %}") 0 0 / 100% no-repeat;
+            }
+        </style>
+        <div class="category_slider">
+            <div class="category">
+                <div class="category-name-wrap">
+                    <div class="category-name">Painting</div>
+                </div>
+                <div class="category-blur"></div>
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+            <div class="category">
+                <div class="category-name-wrap">
+                    <div class="category-name">Game art</div>
+                </div>
+                <div class="category-blur"></div>
+                <img src="{% static 'img/im2.jpg' %}" alt="">
+            </div>
+            <div class="category">
+                <div class="category-name-wrap">
+                    <div class="category-name">Painting</div>
+                </div>
+                <div class="category-blur"></div>
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+            <div class="category">
+                <div class="category-name-wrap">
+                    <div class="category-name">Painting</div>
+                </div>
+                <div class="category-blur"></div>
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+            <div class="category">
+                <div class="category-name-wrap">
+                    <div class="category-name">Painting</div>
+                </div>
+                <div class="category-blur"></div>
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+            <div class="category">
+                <div class="category-name-wrap">
+                    <div class="category-name">Painting</div>
+                </div>
+                <div class="category-blur"></div>
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+        </div>
+        <style>
+            .category_slider .slick-arrow.slick-next {
+                right: 0;
+                background: url("{% static 'img/arrow_right.svg' %}") 0 0 / 100% no-repeat;
+            }
+        </style>
+    </div>
+    <button id="view_all_categories_btn">view all</button>
+    {% endblock categories %}
+
+    {% block content %}
+    <div class="home-content">
+        <div class="grid">
+            <div class="item">
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im2.jpg' %}" alt="">
+            </div>
+            <div class="item large">
+                <img src="{% static 'img/im6.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/gg_2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im4.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im3.jpg' %}" alt="">
+            </div>
+
+            <div class="item">
+                <img src="{% static 'img/im4.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/gg_2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im4.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/gg_2.jpg' %}" alt="">
+            </div>
+
+            <div class="item">
+                <img src="{% static 'img/im4.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+            <div class="item large">
+                <img src="{% static 'img/im2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/gg_2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im4.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im4.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+            <div class="item">
+                <img src="{% static 'img/im3.jpg' %}" alt="">
+            </div>
+            <div class="item large">
+                <img src="{% static 'img/im5.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>
