@@ -46,6 +46,12 @@
     border-radius: 10px;
 }
 
+.all_category{
+    width: 100%;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
 .category:hover .category-blur{
     filter: brightness(300%);
 }

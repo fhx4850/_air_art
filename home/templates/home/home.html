@@ -13,64 +13,7 @@
 <body>
 
     {% block categories %}
-    <div class="categories-wrap">
-        <style>
-            .category_slider .slick-arrow.slick-prev {
-                left: 0;
-                background: url("{% static 'img/arrow_left.svg' %}") 0 0 / 100% no-repeat;
-            }
-        </style>
-        <div class="category_slider">
-            <div class="category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Painting</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im6.jpg' %}" alt="">
-            </div>
-            <div class="category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Painting</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im6.jpg' %}" alt="">
-            </div>
-            <div class="category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Painting</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im6.jpg' %}" alt="">
-            </div>
-            <div class="category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Painting</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im6.jpg' %}" alt="">
-            </div>
-            <div class="category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Painting</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im6.jpg' %}" alt="">
-            </div>
-        </div>
-        <style>
-            .category_slider .slick-arrow.slick-next {
-                right: 0;
-                background: url("{% static 'img/arrow_right.svg' %}") 0 0 / 100% no-repeat;
-            }
-        </style>
-    </div>
+    {% include 'home/includes/category_slider.html' %}
     <button id="view_all_categories_btn">view all</button>
     {% endblock categories %}
 
@@ -84,18 +27,53 @@
                 <img src="{% static 'img/im2.jpg' %}" alt="">
             </div>
             <div class="item large">
+                <button class="post_like_icon">                    
+                    <svg width="45" height="39" viewBox="0 0 45 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="like_btn" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.1486 4.1741C8.34674 -0.0580328 15.1533 -0.0580328 19.3514 4.1741L22.5 7.3482L25.6486 4.1741C29.8467 -0.0580328 36.6533 -0.0580328 40.8514 4.1741C45.0495 8.40623 45.0495 15.2679 40.8514 19.5L22.5 38L4.1486 19.5C-0.0495338 15.2679 -0.0495338 8.40623 4.1486 4.1741Z"
+                            fill="#9EDCFF" stroke="black" stroke-linecap="round" />
+                    </svg>
+                </button>
                 <img src="{% static 'img/im6.jpg' %}" alt="">
             </div>
             <div class="item">
+                <button class="post_like_icon">
+                    <svg width="45" height="39" viewBox="0 0 45 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="like_btn" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.1486 4.1741C8.34674 -0.0580328 15.1533 -0.0580328 19.3514 4.1741L22.5 7.3482L25.6486 4.1741C29.8467 -0.0580328 36.6533 -0.0580328 40.8514 4.1741C45.0495 8.40623 45.0495 15.2679 40.8514 19.5L22.5 38L4.1486 19.5C-0.0495338 15.2679 -0.0495338 8.40623 4.1486 4.1741Z"
+                            fill="#9EDCFF" stroke="black" stroke-linecap="round" />
+                    </svg>
+                </button>
                 <img src="{% static 'img/gg_2.jpg' %}" alt="">
             </div>
             <div class="item">
+                <button class="post_like_icon">
+                    <svg width="45" height="39" viewBox="0 0 45 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="like_btn" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.1486 4.1741C8.34674 -0.0580328 15.1533 -0.0580328 19.3514 4.1741L22.5 7.3482L25.6486 4.1741C29.8467 -0.0580328 36.6533 -0.0580328 40.8514 4.1741C45.0495 8.40623 45.0495 15.2679 40.8514 19.5L22.5 38L4.1486 19.5C-0.0495338 15.2679 -0.0495338 8.40623 4.1486 4.1741Z"
+                            fill="#9EDCFF" stroke="black" stroke-linecap="round" />
+                    </svg>
+                </button>
                 <img src="{% static 'img/im4.jpg' %}" alt="">
             </div>
             <div class="item">
+                <button class="post_like_icon">
+                    <svg width="45" height="39" viewBox="0 0 45 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="like_btn" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.1486 4.1741C8.34674 -0.0580328 15.1533 -0.0580328 19.3514 4.1741L22.5 7.3482L25.6486 4.1741C29.8467 -0.0580328 36.6533 -0.0580328 40.8514 4.1741C45.0495 8.40623 45.0495 15.2679 40.8514 19.5L22.5 38L4.1486 19.5C-0.0495338 15.2679 -0.0495338 8.40623 4.1486 4.1741Z"
+                            fill="#9EDCFF" stroke="black" stroke-linecap="round" />
+                    </svg>
+                </button>
                 <img src="{% static 'img/im5.jpg' %}" alt="">
             </div>
             <div class="item">
+                <button class="post_like_icon">
+                    <svg width="45" height="39" viewBox="0 0 45 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="like_btn" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.1486 4.1741C8.34674 -0.0580328 15.1533 -0.0580328 19.3514 4.1741L22.5 7.3482L25.6486 4.1741C29.8467 -0.0580328 36.6533 -0.0580328 40.8514 4.1741C45.0495 8.40623 45.0495 15.2679 40.8514 19.5L22.5 38L4.1486 19.5C-0.0495338 15.2679 -0.0495338 8.40623 4.1486 4.1741Z"
+                            fill="#9EDCFF" stroke="black" stroke-linecap="round" />
+                    </svg>
+                </button>
                 <img src="{% static 'img/im3.jpg' %}" alt="">
             </div>
 
@@ -103,6 +81,13 @@
                 <img src="{% static 'img/im4.jpg' %}" alt="">
             </div>
             <div class="item">
+                <button class="post_like_icon">
+                    <svg width="45" height="39" viewBox="0 0 45 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="like_btn" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.1486 4.1741C8.34674 -0.0580328 15.1533 -0.0580328 19.3514 4.1741L22.5 7.3482L25.6486 4.1741C29.8467 -0.0580328 36.6533 -0.0580328 40.8514 4.1741C45.0495 8.40623 45.0495 15.2679 40.8514 19.5L22.5 38L4.1486 19.5C-0.0495338 15.2679 -0.0495338 8.40623 4.1486 4.1741Z"
+                            fill="#9EDCFF" stroke="black" stroke-linecap="round" />
+                    </svg>
+                </button>
                 <img src="{% static 'img/im5.jpg' %}" alt="">
             </div>
             <div class="item">
@@ -151,6 +136,17 @@
         </div>
     </div>
     {% endblock content %}
+
+
+    {% block base_alert %}
+    <div id="home_alert_place">
+        {% include 'home/includes/home_category_alert.html' %}
+    </div>
+    {% endblock base_alert %}
+
+    {% block script %}
+
+    {% endblock script %}
 </body>
 
 </html>

@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    {% block base_alert %}
+    
+    {% endblock base_alert %}
     <div class="footer-container">
         <footer>
             <div id="nav-wrapper">
@@ -102,8 +105,6 @@
         </a>
     </div>
 
-
-
     {% block content %}
 
     {% endblock content %}
@@ -111,6 +112,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+    
+    {% block script %}
+
+    {% endblock script %}
 </body>
 
 </html>
