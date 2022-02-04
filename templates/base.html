@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/category_slider.css' %}">
-    <title>{% block titile %}{% endblock titile %}</title>
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 
 <body>
@@ -53,8 +54,8 @@
         </footer>
     </div>
 
-    <div class="left-nav-wrap">
-        <a class="left-nav" id="home" href="">
+    <div id="bottom-nav-wrap" class="bottom-nav-wrap">
+        <a class="bottom-nav" id="home" href="{% url 'home' %}">
             <svg width="47" height="44" viewBox="0 0 47 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M1 17.2058L23.5 1L46 17.2058M41.3698 14.8907L39.0794 40.8478C38.9883 41.8802 38.1236 42.672 37.0872 42.672H28.9622H18.0378H9.91282C8.87638 42.672 8.01166 41.8802 7.92056 40.8478L5.63023 14.8907"
@@ -62,7 +63,7 @@
                 <circle cx="23.7972" cy="25.513" r="7.35389" stroke="#0A022A" stroke-width="1.5" />
             </svg>
         </a>
-        <a class="left-nav" id="profile" href="">
+        <a class="bottom-nav" id="profile" href="{% url 'profile' %}">
             <svg width="34" height="45" viewBox="0 0 34 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="17" cy="9" r="8" stroke="#0A022A" stroke-width="1.5" stroke-linecap="round" />
                 <path
@@ -70,14 +71,14 @@
                     stroke="#0A022A" stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
-        <a class="left-nav" id="create" href="">
+        <a class="bottom-nav" id="create" href="">
             <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M23 15.6667V23M23 23V30.3333M23 23H30.3333M23 23H15.6667M45 23C45 35.1503 35.1503 45 23 45C10.8497 45 1 35.1503 1 23C1 10.8497 10.8497 1 23 1C35.1503 1 45 10.8497 45 23Z"
                     stroke="#0A022A" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </a>
-        <a class="left-nav" id="subscriptions" href="">
+        <a class="bottom-nav" id="subscriptions" href="">
             <svg width="42" height="35" viewBox="0 0 42 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="21.6252" cy="7.1875" r="6.1875" stroke="#0A022A" stroke-width="1.5"
                     stroke-linecap="round" />
@@ -96,7 +97,7 @@
                     stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
-        <a class="left-nav" id="log_out" href="">
+        <a class="bottom-nav" id="log_out" href="">
             <svg width="40" height="36" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M30.5556 26.5L39 18M39 18L30.5556 9.5M39 18L9.44444 18M22.1111 26.5V28.625C22.1111 32.1458 19.2756 35 15.7778 35H7.33333C3.83553 35 1 32.1458 1 28.625V7.375C1 3.85418 3.83553 1 7.33333 1H15.7778C19.2756 1 22.1111 3.85418 22.1111 7.375V9.5"

@@ -1,5 +1,4 @@
-/* Слайдер */
-.slick-slider{
+/* .slick-slider{
 	min-width: 0;
     margin: 0;
 }
@@ -28,12 +27,10 @@
 	position: absolute;
 	top: 50%;
 	margin: -18px 0px 0px 0px;
-	/* z-index: 10; */
 	font-size: 0;
 	width: 18px;
 	height: 36px;
     border: none;
-    /* background: #000; */
 }
 
 
@@ -57,7 +54,6 @@
 }
 
 .category img{
-	/* max-width: 100%; */
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -125,5 +121,10 @@
 }
 
 #view_all_categories_btn:hover{
-    color: #7C95FF;
+    color: #E11D1D;
 }
+
+.categories_small{
+    height: 20px;
+    display: block;
+} */
