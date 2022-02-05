@@ -170,6 +170,46 @@
         padding-left: 0;
         padding-right: 0;
     }
+    /* --------------------- */
+    /* -------POST VIEW----- */
+    /* --------------------- */
+
+    #post_wrap{
+        margin: 0;
+        margin-top: 65px;
+        margin-bottom: 70px;
+        display: flex;
+        flex-direction: column;
+    }
+    #post_content{
+        width: 100%;
+    }
+    #post_description{
+        position: relative;
+        width: 100%;
+        float: none;
+        /* height: calc(100vh - 200px); */
+        overflow-y: visible;
+    }
+    .post_img_wrap{
+        width: 100%;
+    }
+    .post-profile{
+        width: 100%;
+    }
+    .post-profile-activity{
+        font-size: 14px;
+    }
+    .post-buttons{
+        width: 100%;
+        justify-content: start;
+    }
+    .post-like{
+        margin-right: 20px;
+    }
+    .post-info div p{
+        font-size: 0;
+    }
 }
 
 @media (min-width: 576px){
@@ -300,13 +340,18 @@
     }
     .bottom-nav-wrap{
         border-radius: 10px 10px 0 0;
-        width: 40%;
+        width: 30%;
         flex-direction: row;
         height: 60px;
         bottom: 0;
         /* top: calc(100% - 60px); */
-        right: calc(50% - 20%);
+        right: calc(50% - 15%);
         padding: 10px;
+        bottom: calc(0% - 50px);
+        transition: all .2s ease-in-out;
+    }
+    .bottom-nav-wrap:hover{
+        bottom: 0;
     }
     .home-alert-wrap{
         top: 10%;
@@ -363,6 +408,28 @@
     .profile_descr_bg_wrap{
         border-radius: 10px 10px 0 0;
     }
+
+    /* --------------------- */
+    /* -------POST VIEW----- */
+    /* --------------------- */
+
+    #post_wrap{
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+    #post_content{
+        width: 65%;
+    }
+    #post_description{
+        position: fixed;
+        width: 35%;
+        overflow-y: scroll;
+        float: left;
+        height: calc(100vh - 65px);
+    }
+    .post-info div p{
+        font-size: 17px;
+    }
 }
 
 @media (min-width: 1200px){
@@ -380,21 +447,6 @@
     .post_like_icon svg{
         width: 3vw;
         height: 3vw;
-    }
-    .bottom-nav-wrap{
-        border-radius: 10px 10px 0 0;
-        width: 30%;
-        flex-direction: row;
-        height: 60px;
-        bottom: 0;
-        /* top: calc(100% - 60px); */
-        right: calc(50% - 15%);
-        padding: 10px;
-        bottom: calc(0% - 50px);
-        transition: all .2s ease-in-out;
-    }
-    .bottom-nav-wrap:hover{
-        bottom: 0;
     }
     .home-alert-wrap{
         top: 10%;

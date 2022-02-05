@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Post{% endblock title %}
+
+{% block categories %}
+<div class="footer_padding"></div>
+{% endblock categories %}
+
+{% block content %}
+<div id="post_wrap">
+    <div id="post_content">
+        <div class="post_img_wrap">
+            <img src="{% static 'img/avv.jpg' %}" alt="">
+        </div>
+        <div class="post_img_wrap">
+            <img src="{% static 'img/im.jpg' %}" alt="">
+        </div>
+    </div>
+    <div id="post_description">
+        <div class="post-profile">
+            <div class="post-profile-img">
+                <img src="{% static 'img/gg_2.jpg' %}" alt="">
+            </div>
+            <div class="post-profile-descr">
+                <div class="post-profile-username">
+                    renxob.4850
+                    <p class='post-profile-activity'>Game designer</p>
+                </div>
+                <button id="follow_btn" class="post-followBtn">
+                    <img src="{% static 'img/follow.svg' %}" alt="">
+                    <p>Follow</p>
+                </button>
+            </div>
+        </div>
+        <div class="post_line"></div>
+        <div class="post-title">
+            Jinx/Powder ~ Arcane
+        </div>
+        <div class="post-text">
+            Thanks to Pascal Charrue -one of the best character modelers I know- who gave me the chance to join Fortiche
+            years ago and who trusted me to be Character Modeler and Texture Artist for Arcane on such great characters!
+        </div>
+        <div class="post-buttons">
+            <button class="post-button post-like">
+                <img src="{% static 'img/like_no_fill.svg' %}" alt="">
+                <p>3.6k</p>
+            </button>
+            <button class="post-button post-share">
+                <img src="{% static 'img/share_no_fill.svg' %}" alt="">
+                <p>Share</p>
+            </button>
+        </div>
+        <div class="post-tags">
+            <div class="tag">
+                #<p>jinx</p>
+            </div>
+            <div class="tag">
+                #<p>arcane</p>
+            </div>
+            <div class="tag">
+                #<p>paint</p>
+            </div>
+        </div>
+        <div class="post-info">
+            <div>
+                <img src="{% static 'img/views_icon.svg' %}" alt="">
+                <p>Views:</p>
+                <p class="post_info_count">3534</p>
+            </div>
+            <div>
+                <img src="{% static 'img/comments_icon.svg' %}" alt="">
+                <p>Comments:</p>
+                <p class="post_info_count">244</p>
+            </div>
+        </div>
+        <div class="post_line"></div>
+        <div class="comments-title">
+            Comments:
+        </div>
+        <div id="comments-wrap">
+            <div class="comment">
+                <div class="comment-img">
+                    <img src="{% static 'img/avv.jpg' %}" alt="">
+                </div>
+                <div class="comment-content">
+                    <a class="comment-username" href="">
+                        renxob
+                    </a>
+                    <div class="comment-text">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum
+                    </div>
+                    <div class="comment-btns">
+                        <button id="like-comment-btn" class="like-comment-btn comment_like">Like: 344</button>
+                        <button id="ansver-comment-btn">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment commentAnswer">
+                <div class="comment-img">
+                    <img src="{% static 'img/avv.jpg' %}" alt="">
+                </div>
+                <div class="comment-content">
+                    <a class="comment-username" href="">
+                        renxob
+                    </a>
+                    <div class="comment-text">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum
+                    </div>
+                    <div class="comment-btns">
+                        <button id="like-comment-btn" class="like-comment-btn">Like: 344</button>
+                        <button id="ansver-comment-btn">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-img">
+                    <img src="{% static 'img/avv.jpg' %}" alt="">
+                </div>
+                <div class="comment-content">
+                    <a class="comment-username" href="">
+                        renxob
+                    </a>
+                    <div class="comment-text">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum
+                    </div>
+                    <div class="comment-btns">
+                        <button id="like-comment-btn" class="like-comment-btn">Like: 344</button>
+                        <button id="ansver-comment-btn">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-img">
+                    <img src="{% static 'img/avv.jpg' %}" alt="">
+                </div>
+                <div class="comment-content">
+                    <a class="comment-username" href="">
+                        renxob
+                    </a>
+                    <div class="comment-text">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum
+                    </div>
+                    <div class="comment-btns">
+                        <button id="like-comment-btn" class="like-comment-btn">Like: 344</button>
+                        <button id="ansver-comment-btn">Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
