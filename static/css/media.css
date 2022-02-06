@@ -210,6 +210,24 @@
     .post-info div p{
         font-size: 0;
     }
+
+    /* -------------------------- */
+    /* ------CREATE POST--------- */
+    /* -------------------------- */
+
+    #create_post_wrap{
+        flex-direction: column-reverse;
+        margin-bottom: 70px;
+    }
+
+    .create-post-view{
+        width: 100%;
+    }
+
+    .create-post{
+        width: 100%;
+        position: relative;
+    }
 }
 
 @media (min-width: 576px){
@@ -429,6 +447,24 @@
     }
     .post-info div p{
         font-size: 17px;
+    }
+
+    /* -------------------------- */
+    /* ------CREATE POST--------- */
+    /* -------------------------- */
+
+    #create_post_wrap{
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+
+    .create-post-view{
+        width: 65%;
+    }
+
+    .create-post{
+        width: 35%;
+        position: fixed;
     }
 }
 

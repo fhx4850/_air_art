@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create new post{% endblock title %}
+
+{% block categories %}
+<div class="footer_padding"></div>
+{% endblock categories %}
+
+{% block content %}
+    <div id="create_post_wrap">
+        <div class="create-post-view" id="create-post-view">
+            <!-- <div class="create-post-view-img">
+                <img id="outputImg" src="{% static 'img/avv.jpg' %}" alt="">
+            </div> -->
+        </div>
+        <div class="create-post">
+            <h3 id="create-title">Create new publication</h3>
+            <form action="" class="create-inputs">
+                <div class="crete-input">
+                    <span>Title</span>
+                    <input type="text">
+                </div>
+                <div class="crete-input">
+                    <span>Description</span>
+                    <textarea></textarea>
+                </div>
+                <div class="crete-input">
+                    <span>Title</span>
+                    <!-- <div class="crete-input-wrap"> -->
+                        <input id="create-photo-input" type="file" accept="image/jpeg,image/png" multiple>
+                        <button id="clear_choice_btn" type="button">Clear choice</button>
+                    <!-- </div> -->
+                </div>
+                <div class="crete-input">
+                    <span>Tags</span>
+                    <textarea></textarea>
+                </div>
+                <div class="post_line"></div>
+                <button id="submit_crete_post" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
