@@ -1,0 +1,33 @@
+{% comment %} {% extends "account/base.html" %} {% endcomment %}
+{% load static %}
+{% load i18n %}
+
+<!-- {% block head_title %}{% trans "Signup" %}{% endblock %} -->
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+{% block content %}
+<div class="auth-wrap">
+  <a href="{% url 'home' %}" class="close_auth">
+    <img src="{% static 'img/close_cross.svg' %}" alt="">
+  </a>
+  <h1>{% trans "Sign Up" %}</h1>
+  
+  <p class="already-account">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  
+  <form class="authForm signup form_style" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button class="submitBtn" type="submit">{% trans "Sign Up" %}</button>
+  </form>
+</div>
+<div id="authBgImg_shadow"></div>
+<div id="authBgImg">
+  <img src="{% static 'img/g.jpg' %}" alt="">
+</div>
+{% endblock %}
