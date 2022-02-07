@@ -30,6 +30,10 @@
         height: 70px;
         bottom: 0;
     }
+    #bottom-followed{
+        width: 100%;
+        left: 0;
+    }
     .home-content{
         margin-bottom: 75px;
         margin-top: 100px;
@@ -367,6 +371,12 @@
         padding: 10px;
         bottom: calc(0% - 50px);
         transition: all .2s ease-in-out;
+    }
+    /* ---------Followed--------- */
+
+    #bottom-followed{
+        width: 30%;
+        left: calc(50% - 15%);
     }
     .bottom-nav-wrap:hover{
         bottom: 0;

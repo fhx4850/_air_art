@@ -86,20 +86,30 @@ $(document).ready(function () {
 			disableScrolling();
 		}
 	}
-	document.getElementById('create-photo-input').onchange = function (event) {
-        let output = document.getElementById('outputImg');
-		for (let i = 0; i < event.target.files.length; i++) {
-			url = URL.createObjectURL(event.target.files[i]);
-			document.getElementById('create-post-view').innerHTML += '<div class="create-post-view-img">'+
-			'<img id="outputImg" src="' + url + '" alt="">'+
-			'</div>';
+	if(document.getElementById('create-photo-input')){
+		document.getElementById('create-photo-input').onchange = function (event) {
+			let output = document.getElementById('outputImg');
+			for (let i = 0; i < event.target.files.length; i++) {
+				url = URL.createObjectURL(event.target.files[i]);
+				document.getElementById('create-post-view').innerHTML += '<div class="create-post-view-img">'+
+				'<img id="outputImg" src="' + url + '" alt="">'+
+				'</div>';
+			}
 		}
-    }
+	}
 	if(document.getElementById('clear_choice_btn')){
 		document.getElementById('clear_choice_btn').onclick = function(){
 			document.getElementById('create-photo-input').value = '';
 			document.getElementById('create-post-view').innerHTML = '';
 		}
+	}
+	if(document.getElementById('close_follow')){
+		document.getElementById('close_follow').onclick = function(){
+			document.getElementById('bottom-followed').style.bottom = '-350px';
+		}
+	}
+	document.getElementById('subscriptions').onclick = function(){
+		document.getElementById('bottom-followed').style.bottom = '0';
 	}
 });
 
