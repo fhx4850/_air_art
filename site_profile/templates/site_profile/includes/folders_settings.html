@@ -1,0 +1,14 @@
+{% load static %}
+{% csrf_token %}
+
+{% for folder in folders %}
+<a href="{{ folder.get_absolute_url }}" class="category folder-settings">
+    <div class="category-name-wrap">
+        <div class="category-name">{{ folder.folder_name }}</div>
+    </div>
+    <div class="category-blur"></div>
+    {% if folder.folder_bg %}
+    <img src="{{ folder.folder_bg.url }}" alt="">
+    {% endif %}
+</a>
+{% endfor %}

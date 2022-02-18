@@ -30,10 +30,10 @@
         height: 70px;
         bottom: 0;
     }
-    #bottom-followed{
+    /* #bottom-followed{
         width: 100%;
         left: 0;
-    }
+    } */
     .home-content{
         margin-bottom: 75px;
         margin-top: 100px;
@@ -314,6 +314,7 @@
     }
     .prof-description{
         height: 100%;
+        margin-right: auto;
         /* width: 400px; */
         /* min-width: 100%; */
     }
@@ -374,10 +375,10 @@
     }
     /* ---------Followed--------- */
 
-    #bottom-followed{
+    /* #bottom-followed{
         width: 30%;
         left: calc(50% - 15%);
-    }
+    } */
     .bottom-nav-wrap:hover{
         bottom: 0;
     }

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load art_tags %}
+
+{% block title %}Profile edit{% endblock title %}
+
+{% block categories %}
+<div class="footer_padding"></div>
+{% endblock categories %}
+
+{% block content %}
+    <div id="profile_edit_nav">
+        <button id="profile_settings_btn">Profile settings</button>
+        <button id="folders_settings_btn">Folders settings</button>
+        <button id="folders_create_btn">Create new folder</button>
+    </div>
+
+    <form id="edit_profile_wrap" method="post" enctype="multipart/form-data">
+        {% include 'site_profile/includes/profile_settings.html' %}
+    </form>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    function clear_input(elem, img_output){
+        elem.value = '';
+        img_output.src = '{% check_avatar profile %}';
+    }
+    if(document.getElementById('clear_update_img')){
+		document.getElementById('clear_update_img').onclick = function(){
+			elem = document.getElementById('profile_avatar').value = '';
+			img_output = document.getElementById('output_img_update').src = '{% check_avatar profile %}';
+			//clear_input(elem, img_output);
+		}
+	}
+    if(document.getElementById('clear_update_bg')){
+		document.getElementById('clear_update_bg').onclick = function(){
+			elem = document.getElementById('background_input').value = '';
+		}
+	}
+    if(document.getElementById('delete_avatar_btn')){
+        document.getElementById('delete_avatar_btn').onclick = function(){
+            url = URL.createObjectURL('/media/profile_avatar/default_img.png');
+            document.getElementById('profile_avatar').value = url;
+            console.log(document.getElementById('profile_avatar').value);
+        }
+    }
+    document.getElementById('profile_settings_btn').onclick = function(){
+        document.getElementById('edit_profile_wrap').innerHTML = `{% include 'site_profile/includes/profile_settings.html' %}`;
+    }
+    document.getElementById('folders_create_btn').onclick = function(){
+        document.getElementById('edit_profile_wrap').innerHTML = `{% include 'site_profile/includes/create_folder.html' %}`;
+    }
+    document.getElementById('folders_settings_btn').onclick = function(){
+        document.getElementById('edit_profile_wrap').innerHTML = `{% include 'site_profile/includes/folders_settings.html' %}`;
+    }
+</script>
+{% endblock script %}

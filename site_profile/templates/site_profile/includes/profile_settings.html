@@ -1,0 +1,34 @@
+{% load static %}
+{% load art_tags %}
+{% csrf_token %}
+    <div class="current_avatar">
+        <img id="output_img_update" src="{% check_avatar profile %}" alt="">
+    </div>
+    <div class="update_input">
+        <p>Avatar</p>
+        <div class="update-input-wrap">
+            {{ form.profile_avatar }}
+            <span id="clear_update_img">Clear</span>
+        </div>
+        <input type="checkbox" id="delete_avatar" name="delete_avatar" value="True">
+        <label for="delete_avatar">Delete avatar</label>
+    </div>
+    <div class="update_input">
+        <p>Background</p>
+        <div class="update-input-wrap">
+            <input id="background_input" accept="image/jpeg, image/png" name="profile_bg" type="file">
+            <span id="clear_update_bg">Clear</span>
+        </div>
+        <input type="checkbox" id="delete_profile_bg" name="delete_profile_bg" value="True">
+        <label for="delete_profile_bg">Delete profile background</label>
+    </div>
+    <div class="update_input">
+        <p>Activity</p>
+        {{ form.profile_activity }}
+    </div>
+    <div class="update_input">
+        <p>Description</p>
+        {{ form.profile_description }}
+    </div>
+    <div class="post_line"></div>
+    <button id="save_update">Save</button>

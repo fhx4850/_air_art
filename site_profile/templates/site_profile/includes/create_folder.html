@@ -1,0 +1,13 @@
+{% load static %}
+{% load art_tags %}
+{% csrf_token %}
+<div class="update_input">
+    <p>Name</p>
+    <input type="text" name="folder_name">
+</div>        
+<div class="update_input">
+    <p>Background</p>
+    <input type="file" name="folder_bg" accept="image/jpeg, image/png">
+</div>
+<div class="post_line"></div>
+<button name="creeate_folder" id="save_update">Save</button>

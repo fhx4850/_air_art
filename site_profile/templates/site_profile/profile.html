@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load art_tags %}
 
 {% block title %}Profile{% endblock title %}
 
@@ -16,33 +17,58 @@
 {% block content %}
 <div id="profile_wrap">
     <div class="prof-description-wrap">
+        {% if profile.profile_bg %}
         <div class="profile_descr_bg_wrap">
-            <img id="profile_descr_bg" src="{% static 'img/im5.jpg' %}" alt="">
+            <img id="profile_descr_bg" src="{{ profile.profile_bg.url }}" alt="">
         </div>
+        {% endif %}
         <div class="prof_left">
             <div class="prof_avatar">
-                <img src="{% static 'img/im6.jpg' %}" alt="">
+                <img src="{% check_avatar profile %}" alt="">
+                <!-- <img src="{{ profile.profile_avatar }}" alt=""> -->
             </div>
             <div class="prof-description">
                 <div class="prof-nickname">
-                    renxob.4850
+                    {{ profile.profile_user.username }}
                 </div>
                 <div class="prof-text">
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum
+                    {% if profile.profile_description %}
+                    {{ profile.profile_description }}
+                    {% endif %}
                 </div>
                 <div class="activity">
-                    Game designer
+                    {% if profile.profile_activity %}
+                    {{ profile.profile_activity }}
+                    {% endif %}
                 </div>
                 <div class="prof-buttons">
                     <button id="small_resolution_folder_btn">
                         <img src="{% static 'img/folder.svg' %}" alt="">
                         <p>Folders</p>
                     </button>
-                    <button id="follow_btn">
-                        <img src="{% static 'img/follow.svg' %}" alt="">
-                        <p>Follow</p>
-                    </button>
+                    {% if profile.profile_user == user %}
+                    <a class="profile_button" id="edit_profile" href="{% url 'profileUpdate' profile.profile_slug_url %}">
+                        Edit
+                    </a>
+                    {% else %}
+                    <form id="follow_form">
+                        {% csrf_token %}
+                        {% is_follow user profile.id as is_follow %}
+                        {% if is_follow %}
+                        <button class="profile_button" id="follow_btn">
+                            <input type="hidden" name="follow_id" value="{{ profile.id }}">
+                            <img src="{% static 'img/follow.svg' %}" alt="">
+                            <p id="follow_text">Following</p>
+                        </button>
+                        {% else %}
+                        <button class="profile_button follow_color" id="follow_btn">
+                            <input type="hidden" name="follow_id" value="{{ profile.id }}">
+                            <img src="{% static 'img/follow.svg' %}" alt="">
+                            <p id="follow_text">Follow</p>
+                        </button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
                 </div>
             </div>
             <button class="small_resolution_accordion active">
@@ -73,24 +99,38 @@
             <h3>Profile statistics</h3>
             <div class="prof_stat">
                 Followers:
-                <p>244</p>
+                <p>{{ profile.follow.count }}</p>
             </div>
             <div class="prof_stat">
                 Posts:
-                <p>35</p>
+                <p>none</p>
             </div>
             <div class="prof_stat">
                 Follows:
-                <p>43</p>
+                <p>{{ profile.follower.count }}</p>
             </div>
             <div class="prof_stat">
                 Likes:
-                <p>3553</p>
+                <p>none</p>
             </div>
         </div>
         <div class="prof_folders">
             <h3>Profile folders</h3>
+            {% for folder in folders %}
+            {% if forloop.counter0 <= 2 %}
             <div class="category prof_folder">
+                <div class="category-name-wrap">
+                    <div class="category-name">{{ folder.folder_name }}</div>
+                </div>
+                <div class="category-blur"></div>
+                {% if folder.folder_bg %}
+                <img src="{{ folder.folder_bg.url }}" alt="">
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+            {% comment %} <div class="category prof_folder">
                 <div class="category-name-wrap">
                     <div class="category-name">Painting</div>
                 </div>
@@ -110,10 +150,11 @@
                 </div>
                 <div class="category-blur"></div>
                 <img src="{% static 'img/im6.jpg' %}" alt="">
-            </div>
+            </div> {% endcomment %}
             <button id="all_folders_btn">
                 All folders
             </button>
+            
         </div>
     </div>
     <div class="profile-content">
@@ -196,3 +237,20 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block script %}
+<script>
+    $('#follow_form').submit(function(e){
+        e.preventDefault();
+        let form_data = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "{% url 'profile' profile.profile_slug_url %}",
+            data: form_data,
+            success: function(data){
+
+            }
+        });
+    });
+</script>
+{% endblock script %}

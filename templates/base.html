@@ -54,80 +54,6 @@
         </footer>
     </div>
 
-    <div id="bottom-followed">
-        <img id="close_follow" src="{% static 'img/close_cross.svg' %}" alt="">
-        <h3>My follow</h3>
-        <div class="follow-search">
-            <input type="text">
-            <img src="{% static 'img/search_icon.svg' %}" alt="">
-        </div>
-        <div class="follow_user_place">
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-            <div class="follow_user">
-                <div class="follow_user_img">
-                    <img src="{% static 'img/avv.jpg' %}" alt="">
-                </div>
-                <a class="follow_user_username" href="">
-                    toxic.mhp
-                </a>
-                <button id="unfollow_btn">Unfollow</button>
-            </div>
-        </div>
-    </div>
-
     <div id="bottom-nav-wrap" class="bottom-nav-wrap">
         <a class="bottom-nav" id="home" href="{% url 'home' %}">
             <svg width="47" height="44" viewBox="0 0 47 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,7 +63,7 @@
                 <circle cx="23.7972" cy="25.513" r="7.35389" stroke="#0A022A" stroke-width="1.5" />
             </svg>
         </a>
-        <a class="bottom-nav" id="profile" href="{% url 'profile' %}">
+        <a class="bottom-nav" id="profile" href="{{ user.profile.get_absolute_url }}">
             <svg width="34" height="45" viewBox="0 0 34 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="17" cy="9" r="8" stroke="#0A022A" stroke-width="1.5" stroke-linecap="round" />
                 <path
@@ -152,7 +78,7 @@
                     stroke="#0A022A" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </a>
-        <a class="bottom-nav" id="subscriptions">
+        <a class="bottom-nav" id="subscriptions" href="{% url 'follows' %}">
             <svg width="42" height="35" viewBox="0 0 42 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="21.6252" cy="7.1875" r="6.1875" stroke="#0A022A" stroke-width="1.5"
                     stroke-linecap="round" />
@@ -171,13 +97,23 @@
                     stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
-        <a class="bottom-nav" id="log_out" href="">
+        {% if user.is_authenticated %}
+        <a class="bottom-nav" id="log_out" href="{% url 'account_logout' %}">
             <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M15 13L19 9M19 9L15 5M19 9L5 9M11 13V14C11 15.6569 9.65686 17 8 17H4C2.34315 17 1 15.6569 1 14V4C1 2.34315 2.34315 1 4 1H8C9.65686 1 11 2.34315 11 4V5"
                     stroke="#0A022A" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </a>
+        {% else %}
+        <a class="bottom-nav" id="log_out" href="{% url 'account_login' %}">
+            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9 13L5 9M5 9L9 5M5 9L19 9M14 13V14C14 15.6569 12.6569 17 11 17H4C2.34315 17 1 15.6569 1 14V4C1 2.34315 2.34315 1 4 1H11C12.6569 1 14 2.34315 14 4V5"
+                    stroke="#0A022A" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+        {% endif %}
     </div>
 
     {% block content %}
@@ -187,6 +123,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+
+    
 
     {% block script %}
 

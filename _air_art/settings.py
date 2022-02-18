@@ -124,6 +124,12 @@ STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# DEFAULT_IMG = os.path.join(BASE_DIR, 'media/profile_avatar/default_img.png')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -131,3 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 SITE_ID = 1
+
+ACCOUNT_LOGOUT_REDIRECT_URL = '/home/'
+ACCOUNT_SIGNUP_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = '/home/'

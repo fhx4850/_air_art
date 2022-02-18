@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load art_tags %}
+
+{% block categories %}
+<div class="footer_padding"></div>
+{% endblock categories %}
+
+{% block title %}Follows{% endblock title %}
+
+{% block content %}
+<div id="followed_wrap">
+    <img id="close_follow" src="{% static 'img/close_cross.svg' %}" alt="">
+    <h3>My follow</h3>
+    <div class="follow-search">
+        <input type="text">
+        <img src="{% static 'img/search_icon.svg' %}" alt="">
+    </div>
+    <div class="follow_user_place">
+        {% for follow in follows %}
+        {% if follow.Follower.profile_user == user %}
+        <form id="follow_user_form" class="follow_user">
+            {% csrf_token %}
+            {{ user.profile_avatar.url }}
+            <div class="follow_user_img">
+                <img src=" {% check_avatar follow.Follow %}" alt="">
+            </div>
+            <a class="follow_user_username" href="{{ follow.Follow.get_absolute_url }}">
+                {{ follow.Follow.profile_user.username }}
+            </a>
+            <input type="hidden" name="unfollow_id" value="{{ follow.Follow.id }}">
+            <button id="unfollow_btn" class="unfollow">Unfollow</button>
+        </form>
+        {% endif %}
+        {% endfor %}        
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+    $('.follow_user').submit(function(e){
+        e.preventDefault();
+        let form_data = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            data: form_data,
+            url: '{% url "follows" %}',
+            success: function(data){
+
+            }
+        });
+    });
+</script>
+{% endblock script %}

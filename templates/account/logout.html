@@ -1,22 +1,33 @@
-{% extends "account/base.html" %}
+{% comment %} {% extends "base.html" %} {% endcomment %}
+{% load static %}
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% comment %} {% block head_title %}{% trans "Sign Out" %}{% endblock %} {% endcomment %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 
 {% block content %}
 <div class="auth-wrap">
+  <a href="{% url 'home' %}" class="close_auth">
+    <img src="{% static 'img/close_cross.svg' %}" alt="">
+  </a>
   <h1>{% trans "Sign Out" %}</h1>
 
   <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-  <form method="post" action="{% url 'account_logout' %}">
+  <form class="authForm" method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button type="submit">{% trans 'Sign Out' %}</button>
+    <button id="loagoutBtn" type="submit">{% trans 'Sign Out' %}</button>
   </form>
+</div>
+<div id="authBgImg">
+  <img src="{% static 'img/g.jpg' %}" alt="">
 </div>
 
 {% endblock %}

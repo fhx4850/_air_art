@@ -1,6 +1,7 @@
 {% load static %}
 
 <div id="home-alert-bg" class="profile_folers_panel">
+    <div id="close_alert_bg"></div>
     <div class="home-alert-wrap profile_folers_wrap">
         <div class="home-alert-topSide">
             <h3>All folders</h3>
@@ -11,62 +12,17 @@
             </button>
         </div>
         <div class="home-alert-content">
+            {% for folder in folders %}
             <div class="category all_category">
                 <div class="category-name-wrap">
-                    <div class="category-name">Painting</div>
+                    <div class="category-name">{{ folder.folder_name }}</div>
                 </div>
                 <div class="category-blur"></div>
-                <img src="{% static 'img/im6.jpg' %}" alt="">
+                {% if folder.folder_bg %}
+                <img src="{{ folder.folder_bg.url }}" alt="">
+                {% endif %}
             </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
-            <div class="category all_category">
-                <div class="category-name-wrap">
-                    <div class="category-name">Game art</div>
-                </div>
-                <div class="category-blur"></div>
-                <img src="{% static 'img/im2.jpg' %}" alt="">
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

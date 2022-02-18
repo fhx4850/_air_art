@@ -37,8 +37,9 @@ $(document).ready(function () {
 			enableScrolling();
 		}
 	}
-	if(document.getElementById('home-alert-bg')){
-		document.getElementById('home-alert-bg').onclick = function () {
+	if(document.getElementById('close_alert_bg')){
+		document.getElementById('close_alert_bg').onclick = function () {
+			console.log('wfwfefewfwewfewfwefewfwewefwe');
 			let alert = document.getElementById('home_alert_place');
 			hideElement(alert);
 			enableScrolling();
@@ -88,7 +89,7 @@ $(document).ready(function () {
 	}
 	if(document.getElementById('create-photo-input')){
 		document.getElementById('create-photo-input').onchange = function (event) {
-			let output = document.getElementById('outputImg');
+			
 			for (let i = 0; i < event.target.files.length; i++) {
 				url = URL.createObjectURL(event.target.files[i]);
 				document.getElementById('create-post-view').innerHTML += '<div class="create-post-view-img">'+
@@ -108,8 +109,39 @@ $(document).ready(function () {
 			document.getElementById('bottom-followed').style.bottom = '-350px';
 		}
 	}
-	document.getElementById('subscriptions').onclick = function(){
-		document.getElementById('bottom-followed').style.bottom = '0';
+	// if(document.getElementById('subscriptions')){
+	// 	document.getElementById('subscriptions').onclick = function(){
+	// 		document.getElementById('bottom-followed').style.bottom = '0';
+	// 	}
+	// }
+	if(document.getElementById('profile_avatar')){
+		document.getElementById('profile_avatar').onchange = function(e){
+			let output = document.getElementById('output_img_update');
+			url = URL.createObjectURL(e.target.files[0]);
+			output.src = url;
+		}
+	}
+	if(document.getElementById('follow_btn')){
+		document.getElementById('follow_btn').onclick = function(){
+			if(document.getElementById('follow_btn').classList.toggle('follow_color')){
+				document.getElementById('follow_text').innerHTML = 'Follow';
+			}
+			else{
+				document.getElementById('follow_text').innerHTML = 'Following';
+			}
+		}
+	}
+	if(document.getElementById('unfollow_btn')){
+		let btn = document.getElementById('unfollow_btn');
+		btn.onclick = function(){
+			console.log('wfwefwefwefwe');
+			if(btn.classList.toggle('unfollow_color')){
+				btn.innerHTML = 'Follow';
+			}
+			else{
+				btn.innerHTML = 'Unfollow';
+			}
+		}
 	}
 });
 
@@ -137,5 +169,4 @@ function hideElement(elem) {
 
 function like(elem) {
 	elem.classList.toggle('btn_red');
-	// elem.style.fill = '#000';
 }
