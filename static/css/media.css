@@ -352,7 +352,7 @@
     }
     .profile-content{
         padding: 0;
-        padding-top: 10px;
+        /* padding-top: 10px; */
         padding-bottom: 70px;
     }
 }
@@ -374,11 +374,6 @@
         transition: all .2s ease-in-out;
     }
     /* ---------Followed--------- */
-
-    /* #bottom-followed{
-        width: 30%;
-        left: calc(50% - 15%);
-    } */
     .bottom-nav-wrap:hover{
         bottom: 0;
     }
@@ -396,14 +391,14 @@
     }
     .grid{
         grid-template-columns: repeat(5, 1fr);
-        grid-gap: .4vw;
+        grid-gap: 0vw;
     }
     .item{
-        border-radius: 10px;
+        /* border-radius: 10px; */
         height: 16vw;
     }
     .large{
-        height: calc(32vw + .4vw);
+        height: calc(32vw);
     }
     .post_like_icon{
         opacity: 0;
@@ -482,14 +477,15 @@
 @media (min-width: 1200px){
     .grid{
         grid-template-columns: repeat(6, 1fr);
-        grid-gap: .4vw;
+        grid-gap: 0vw;
     }
     .item{
-        border-radius: 10px;
+        /* border-radius: 10px; */
         height: 13vw;
     }
     .large{
-        height: calc(26vw + .4vw);
+        /* height: calc(26vw + .4vw); */
+        height: calc(26vw);
     }
     .post_like_icon svg{
         width: 3vw;
@@ -527,8 +523,8 @@
         width: 40%;
     }
     .profile-content{
-        padding-left: 5px;
-        padding-right: 5px;
+        /* padding-left: 5px; */
+        /* padding-right: 5px; */
     }
 }
 
