@@ -7,7 +7,7 @@ from django.urls import reverse
 
 
 class ProfileID_Manager(models.Manager):
-    def create_id(self, profile):
+    def create_id(self, profile): #makes random profile id
         id = str(randint(1000,9999))
         if ProfileID.objects.filter(prof_ID=id):
             return ProfileID_Manager.createProfileID()
@@ -20,13 +20,9 @@ class Profile(models.Model):
     profile_user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_avatar = models.ImageField(upload_to='profile_avatar/', null=True, blank=True)
     profile_bg = models.ImageField(upload_to='profile_bg/', null=True, blank=True)
-    profile_description = models.CharField(max_length=250, null=True, blank=True, default='')
+    profile_description = models.CharField(max_length=100, null=True, blank=True, default='')
     profile_activity = models.CharField(max_length=20, null=True, blank=True)
     profile_slug_url = models.SlugField(max_length=10, default='none')
-    
-    # def save(self, *args, **kwargs):
-    #     self.profile_slug_url = ProfileID.objects.get(profile = instance.profile).prof_ID
-    #     super().save()
     
     def __str__(self):
         return self.profile_user.username
@@ -37,6 +33,8 @@ class Profile(models.Model):
     
     @receiver(post_save, sender=User)
     def create_profile(sender, instance, created, *args, **kwargs):
+        """On create user model, a profile is automatically created"""
+        
         if created and User.username != 'root':
             Profile.objects.create(profile_user = instance)
             ProfileID.objects.create_id(instance.profile)
@@ -74,6 +72,7 @@ class Folder(models.Model):
     
     
     def save(self, *args, **kwargs):
+        """Create folder url"""
         super().save()
         self.folder_url = f'{self.folder_name}-{self.id}'
         super().save()

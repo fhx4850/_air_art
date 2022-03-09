@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
 
 
-def home(request):
+
+def home(request):    
     return render(request, 'home/home.html')
 
 def post_view(request):

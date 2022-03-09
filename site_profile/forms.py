@@ -1,6 +1,6 @@
 from django import forms
 from .models import Profile
-from django.forms import fields, widgets, Textarea, FileInput
+from django.forms import fields, widgets, Textarea, FileInput, TextInput
 
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
